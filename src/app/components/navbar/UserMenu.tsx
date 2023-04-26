@@ -2,8 +2,9 @@
 
 import { type FC, useState, useCallback } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { Avatar } from '..';
+
 import { MenuItem } from './MenuItem';
+import { Avatar } from '../Avatar';
 
 interface UserMenuProps {}
 
