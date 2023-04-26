@@ -36,6 +36,7 @@ export const UserMenu: FC<UserMenuProps> = ({}) => {
 					<div className='flex flex-col cursor-pointer'>
 						<>
 							<MenuItem onClick={() => {}} label='Login' />
+							<MenuItem onClick={() => {}} label='Sign up' />
 						</>
 					</div>
 				</div>

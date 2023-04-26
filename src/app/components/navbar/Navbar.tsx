@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import { Logo, Search, UserMenu } from '.';
 import { Container } from '..';
