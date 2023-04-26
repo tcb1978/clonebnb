@@ -1,11 +1,11 @@
 'use client';
 
-import { FC } from 'react';
+import { type FC } from 'react';
 
-import { Logo } from './Logo';
 import { Search } from './Search';
 import { UserMenu } from './UserMenu';
 import { Container } from '../Container';
+import { Logo } from './Logo';
 
 interface NavbarProps {}
 
