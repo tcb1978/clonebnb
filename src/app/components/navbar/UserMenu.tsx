@@ -1,6 +1,7 @@
 'use client';
 
-import { type FC, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
+import type { FC } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 
 import { MenuItem } from './MenuItem';

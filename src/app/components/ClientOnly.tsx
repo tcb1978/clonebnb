@@ -1,4 +1,5 @@
-import { type FC, useState, useEffect, type ReactNode } from 'react';
+import { useState, useEffect } from 'react';
+import type { FC, ReactNode } from 'react';
 
 interface ClientOnlyProps {
 	children: ReactNode;

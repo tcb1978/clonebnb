@@ -1,6 +1,6 @@
 'use client';
 
-import { type FC } from 'react';
+import type { FC } from 'react';
 
 import { Search } from './Search';
 import { UserMenu } from './UserMenu';
