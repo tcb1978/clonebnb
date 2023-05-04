@@ -1,7 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { FC, useCallback } from 'react';
+import { useCallback } from 'react';
+import type { FC } from 'react';
 import { ReactElement, useEffect, useState } from 'react';
 import { ModalHeader } from './ModalHeader';
 import { ModalBody } from './ModalBody';
