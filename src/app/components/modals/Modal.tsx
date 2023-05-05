@@ -73,7 +73,7 @@ export const Modal: FC<ModalProps> = ({
 				<div className='relative w-full h-full mx-auto my-6 md:w-4/6 lg:w-3/6 xl:w-2/5 lg:h-auto md:h-auto'>
 					{/* CONTENT */}
 					<div
-						className={clsx('translate duration-300h-full', {
+						className={clsx('translate duration-300', {
 							'translate-y-0 opacity-100': showModal,
 							'translate-y-full opacity-0': !showModal,
 						})}>
