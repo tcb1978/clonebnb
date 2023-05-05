@@ -9,6 +9,9 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 import { useRegisterModal } from '../../hooks/useRegisterModal';
 import { Modal } from './Modal';
+import { Heading } from '../Heading';
+import { Input } from '../inputs/Input';
+import { toast } from 'react-hot-toast';
 
 interface RegisterModalProps {}
 
@@ -36,11 +39,46 @@ export const RegisterModal: FC<RegisterModalProps> = ({}) => {
 			.then(() => {
 				registerModal.onClose();
 			})
-			.catch((error) => console.log(error))
+			.catch((error) => {
+				console.error(error);
+				toast.error(
+					`Something went wrong, ${JSON.stringify(error['message'], null, 2)}`
+				);
+			})
 			.finally(() => {
 				setIsLoading(false);
 			});
 	};
+
+	const bodyContent = (
+		<div className='flex flex-col gap-4'>
+			<Heading title='Welcome to CloneBnB' subtitle='Create an account!' />
+			<Input
+				id='email'
+				label='Email'
+				disabled={isLoading}
+				register={register}
+				errors={errors}
+				required
+			/>
+			<Input
+				id='name'
+				label='Name'
+				disabled={isLoading}
+				register={register}
+				errors={errors}
+				required
+			/>
+			<Input
+				id='password'
+				label='Password '
+				disabled={isLoading}
+				register={register}
+				errors={errors}
+				required
+			/>
+		</div>
+	);
 
 	return (
 		<Modal
@@ -49,9 +87,8 @@ export const RegisterModal: FC<RegisterModalProps> = ({}) => {
 			title='Register'
 			actionLabel='Continue'
 			onClose={registerModal.onClose}
-			onSubmit={() => {
-				handleSubmit(onSubmit);
-			}}
+			onSubmit={handleSubmit(onSubmit)}
+			body={bodyContent}
 		/>
 	);
 };

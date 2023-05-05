@@ -1,5 +1,3 @@
-'use client';
-
 import clsx from 'clsx';
 import type { FC, MouseEvent, ReactNode } from 'react';
 import type { IconType } from 'react-icons';
@@ -17,12 +15,13 @@ export const Button: FC<ButtonProps> = ({
 	disabled,
 	icon: Icon,
 	label,
+	onClick,
 	outline,
 	small,
 }) => {
 	return (
 		<button
-			onClick={onclick}
+			onClick={onClick}
 			disabled={disabled}
 			className={clsx(
 				'relative disabled:opacity-70 disabled:cursor-not-allowed rounded-lg hover:opacity-80 transition w-full',
