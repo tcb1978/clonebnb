@@ -12,11 +12,13 @@ import { Modal } from './Modal';
 import { Heading } from '../Heading';
 import { Input } from '../inputs/Input';
 import { toast } from 'react-hot-toast';
+import { Button } from '../Button';
 
 interface RegisterModalProps {}
 
 export const RegisterModal: FC<RegisterModalProps> = ({}) => {
 	const registerModal = useRegisterModal();
+	const { isOpen, onClose } = registerModal;
 	const [isLoading, setIsLoading] = useState(false);
 
 	const {
@@ -37,7 +39,7 @@ export const RegisterModal: FC<RegisterModalProps> = ({}) => {
 		axios
 			.post('/api/register', data)
 			.then(() => {
-				registerModal.onClose();
+				onClose();
 			})
 			.catch((error) => {
 				console.error(error);
@@ -80,15 +82,44 @@ export const RegisterModal: FC<RegisterModalProps> = ({}) => {
 		</div>
 	);
 
+	const footerContent = (
+		<div className='flex flex-col gap-4 mt-3'>
+			<hr />
+			<Button
+				outline
+				label='Continue with Google'
+				icon={FcGoogle}
+				onClick={() => {}}
+			/>
+			<Button
+				outline
+				label='Continue with Github'
+				icon={AiFillGithub}
+				onClick={() => {}}
+			/>
+			<div className='mt-4 font-light text-center text-neutral-500'>
+				<div className='flex flex-row items-center justify-center gap-2'>
+					<div>Already have an account?</div>
+					<div
+						className='cursor-pointer text-neutral-800 hover:underline'
+						onClick={onClose}>
+						Login
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+
 	return (
 		<Modal
 			disabled={isLoading}
-			isOpen={registerModal.isOpen}
+			isOpen={isOpen}
 			title='Register'
 			actionLabel='Continue'
-			onClose={registerModal.onClose}
+			onClose={onClose}
 			onSubmit={handleSubmit(onSubmit)}
 			body={bodyContent}
+			footer={footerContent}
 		/>
 	);
 };
